@@ -1,0 +1,71 @@
+.calculator_wrapper {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page__question {
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.1em;
+    line-height: 1.2em;
+    color: rgb(0, 0, 0);
+}
+
+.page__input {
+    width: 30%;
+    height: 3vw;
+    margin: 20px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1em;
+    line-height: 160%;
+    color: #000000;
+    padding-left: 15px;
+}
+
+.calculator__buttons-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-items: space-between;
+}
+
+.main-button {
+    width: 20vw;
+    height: 11vh;
+    border-radius: 40px;
+    padding: 16px;
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1em;
+    line-height: 1.1em;
+    color: #FFFFFF;
+    text-transform: uppercase;            
+}
+
+.sum {
+    background-color: rgb(1, 109, 73, 0.6);
+    margin: 15px;
+}
+
+.deduction {
+    background-color: rgb(247, 46, 89, 0.6);
+    margin: 15px;
+}
+
+.multiplication {
+    background-color: rgb(71, 26, 236, 0.6);
+    margin: 15px;
+}
+
+.division {
+    background-color: rgba(255, 137, 2, 0.6);
+    margin: 15px;
+}
