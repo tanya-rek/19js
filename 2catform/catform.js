@@ -1,19 +1,76 @@
-// 2. Помните наше практическое задание с опросником для владельцев котиков? Он нам снова пригодится! Напишите класс `Cat` со свойствами, соответствующими полям вашего опросника (например, кличка, корм и пр.), и по нажатию на кнопку "Ок" создайте экземпляр этого класса, заполнив его свойства ответами из опросника. В этом классе будут только свойства и конструктор, без методов. Выведите результат (заполненный объект класса `Cat`) в консоль при помощи console.log.
-
 class Cat {
-    constructor (catName, ownerName, phone, catBreedSelect, catFood, catSex, comment, catPicture) {
+    constructor(catName, ownerName, phone, catBreedSelect, foodTypes, catSex, comment) {
         this.catName = catName;
-        ownerName,
-        phone,
-        catBreedSelect,
-        catFood,
-        catSex,
-        comment,
-        catPicture
+        this.ownerName = ownerName;
+        this.phone = phone;
+        this.catBreedSelect = catBreedSelect;
+        this.foodTypes = foodTypes;
+        this.catSex = catSex;
+        this.comment = comment;
     }
 }
+function submitForm() {
+    let errorMessage = '';
+    document.getElementById('errorMessage').innerHTML = '';
+    
+    let catName = document.getElementById('catName').value;
+    if (!catName) {
+        errorMessage += "Please enter your cat's name.<br>";
+    }
 
-//petName ownerName phone catBreedSelect |wetFood dryFood naturalFood female male| comment catPicture
+    let ownerName = document.getElementById('ownerName').value;
+    if (!ownerName) {
+        errorMessage += "Please enter your name.<br>";
+    }
 
-function submitForm() {}
-console.log();
+    let phone = document.getElementById('phone').value;
+    if (!phone) {
+        errorMessage += "Please enter your phone number.<br>";
+    }
+    let catBreedSelect = document.getElementById('catBreedSelect').value;
+    if (catBreedSelect === "0") {
+        errorMessage += "Please select your cat's breed.<br>";
+    }
+    // Food
+    let wetFood = document.getElementById('wetFood');
+    let dryFood = document.getElementById('dryFood');
+    let naturalFood = document.getElementById('naturalFood');
+    if (!wetFood.checked && !dryFood.checked && !naturalFood.checked) {
+        errorMessage += "Please choose at least one type of cat's food.<br>";
+    }
+    let foodTypes = [];
+    if (wetFood.checked) {
+        foodTypes.push(wetFood.value);
+    }
+    if (dryFood.checked) {
+        foodTypes.push(dryFood.value);
+    }
+    if (naturalFood.checked) {
+        foodTypes.push(naturalFood.value);
+    }
+
+    // Sex
+    let catSex = "";
+    let female = document.getElementById('female');
+    let male = document.getElementById('male');
+    if (!female.checked && !male.checked) {
+        errorMessage += "Please choose your cat's sex.<br>";
+    }
+    if (female.checked) {
+        catSex = female.value;
+    }
+    if (male.checked) {
+        catSex = male.value;
+    }
+
+    // Error
+    if (errorMessage) {
+        document.getElementById('errorMessage').innerHTML = errorMessage;
+        return;
+    }
+
+    let comment = document.getElementById('comment').value;
+
+    let cat1 = new Cat (catName, ownerName, phone, catBreedSelect, foodTypes, catSex, comment);
+    console.log(cat1);
+}
